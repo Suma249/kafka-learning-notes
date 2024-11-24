@@ -1,0 +1,31 @@
+kafka components
+1. producer: it is the source od that publish message or event
+2. consumer: consues the data and is responsible for recieving or consuming data, and producer consumer does nor directly communicate with each other
+3. broker(in our casekafksa server): broker or messaging system that will stote the messages published from producer and those stred messages will be consumed by consumer,
+  it helps in message exchange between producer and consumer
+4. cluster: a common terminology in ditributed computing syste, it is nothing but a grop of computers or servers that are working for a common purpose, since
+ kafka is also a distributed system, it can have a multiple kafka server or brokers inside a single kafka cluster, so there can be one or more kafka brokers
+ inside a single kafka cluster
+lets a producer is publishing huge amount of data, then a single kafka broker may not be able to handle it, so we might need to add additional kafka server or additional broker
+so we can group multiple rokers usingg kafka cluster
+5. topic: component of broker, ex: paytim will be sending all kind of activity to the kafka server and the paytm client app will continously listen to the messages ftom 
+ kafke server, broker recieves different kind of messages like it can be a pyment transaction or it can be a ticket backing or mobile recharge ext.,
+ now consumer needs to real all the messages to process them, so the consumer asks to the broker to give the all the messages recived 
+ than broker checks and te;lls that i has lot of messages related to different activity, consumer will ask for payment transaction related messages
+  and again broker will tell it has different kind of payment transaction messages, so to overcome this we have topic
+   that is used to categorise different kind of messages, we can create multiple topic to store different type of messagess
+   like this can keep payment transaction related messages in payment transaction topic, and mobile recharge messages in mobile recharge topic and so on
+   with this here is no need to have back and forth communication between condumer and broker, consumer can subscribe to the the specific topic to recive the 
+   data from that topic when producer messages to that topic, topic is something similar to database table
+6. partition: component of broker, lets say producer is publishing huge volume of data/sec to the topicx, where topic will not be ablr to handle such large amount of data
+    which is challenging, since kafka is a distributed system in such scenarios we can break the topic into multiple parts and distribute those parts to different 
+    machines, this is called partitioning and each part is called partition in kafka, this partition will give better performance and high availability
+7. offset: componnet of broker, so far we learned that a kafka cluster can have one or more kafka server and a kafka server can have one or more topic
+   and each topic can have multiple partitions, now when producer sends a message ir will go and sit in any partition inside a topic
+   onw hich we dont have any control, so when a message arrives into the partition a number is assigned to it which is aclled offset
+   purpose offset is to keep a track of which message has been consumed by cosnumer
+   ex: lets say after reading 4 messages from the partition, consumer went down and when consumer come up this offset helps consumer to identify from where to start processing the pmessages
+8. consumer groups: only one cosnuemr many not be able to proces all the messages from the topoc hence will have different cosnumer isnatnces and will group them which is called consumer groups
+and we dont have any control on which consumer from the cosnumer group will read from which partition
+consumer rebalancing?
+9. zookeper: kafka is a distributed systema dn it uses zookeper to keep starck of all the kafka eco system

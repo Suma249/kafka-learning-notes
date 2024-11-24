@@ -1,0 +1,16 @@
+we can create multiple consumer instances and we can group them with unique id and this id will indicate the task of the consumer group
+
+create spring starter project with web and kafka dependencies
+
+create a class kafmessagelistener in service package and a methid consume and annotate this methoid with kafkalisatener mentioning the topics thsat this 
+consumer has to read from
+
+
+we need to map a consumer to a group id else kafka will throw an error
+and add the group id in thre application.properties as well in the annotation @Kafkalistener annotation
+
+each consumer will read from each partition of that topic if there are more consumers compared to number of partitions, the extra consumer will be aitting idle
+
+consumer rebalancing?
+
+create 3 extra consumers under the same grioup id, listening to same topic

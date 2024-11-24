@@ -1,0 +1,33 @@
+installation is different on each OS 
+so will go for docker where we will write a docker compose file with feww instructios which are independent of OS
+
+to install kafka on docker containwer we need,
+ 1. instance of zookeeper and
+ 2. an instance of kafka
+so we will create docker-compose.yml file and in that file we will define two services one for zookeper and kafka serve
+and will ask docker to create these 2 instances for us
+
+create dicker-compose.yml file with content below
+version:'3.1'
+
+services:
+  zookeper:
+    image: wurstmeister/zookeper
+    container_name:zookeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image:wurstmeister/kafka
+    container_name:kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+start he docker desktop and in the directory where file is present execute docker compose up -d
+
+docker ps -> to know the running images
+
+docker exec -it "containerid"(kafka) /bin/sh -> to go inside kafka image
+inside this kafka container execute the commands to create a topic, 

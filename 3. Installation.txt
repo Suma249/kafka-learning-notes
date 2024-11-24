@@ -1,0 +1,9 @@
+we have different kind of kafka servers like 
+opens ource: apache kafka: 
+commercial distribution: confluent kafka
+managed kafka service: confluent and aws
+
+apache kafka website -> download it -> extract the downloaded zip file -> inside bin, 
+on my systen, kafka is in c directory
+to install confluent kafka go to confluent.io -> get started -> software -> fil the form -> acknowlege -> start for free -> community edition
+install kafka offset explorer to monitor the kafka cluster

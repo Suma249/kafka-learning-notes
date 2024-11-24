@@ -1,0 +1,14 @@
+start the zookeper and then start the kafka server or broker -> then start producer and condumer, and then create topi and then partitions
+
+go to folder c:kafka\bin\windows
+1. start the zookeper -> zookeper-server-start.bat ..\..\config\zookeper.properpties -> default port of zookeper : 2181
+2. start the kafka servr ->kafka-server-start.bat ..\..\config\server.properties -> defaukt port of kafka server of broker is : 9092
+3. create a topic and sepecify the partition and replication factor -> kafka-topics.bat --bootstrap.server localhost:9092 --create --topic learning_topic1 --partitions 3 --replication-factor 1
+4. to list the topics -> kafka-topics.bat --bootstrap.server localhost:9092 --list 
+5. to describe the topic -> kafka-topics.bat --bootstrap.server localhost:9092 --describe --topic topic-name
+5. to create producer and consumer -> open the offset explorer -> create a connection by giving details cluster name and other details it will take by itself
+6. start the producer-> >kafka-console-producer.bat --broker-list localhost:9092 --topic first-topic 
+  kafka-console-producer.bat --broker-list localhost:9092 --topic first-topic45 "file location" -> if we want to send data once when starting the producer itself
+7. start the consumer -> >kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic first-topic --from-beginning
+
+with colfluent kafka 

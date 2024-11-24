@@ -1,0 +1,7 @@
+in kafka, once producer send bulk message it will split into partitions and similary consumer will consume from all partitions
+how we can control producer to sed messages to single paetition and similarly for consumer
+
+to send data to a single partition of a tipic, we can tell to kafkatemplate the partition 
+template.send("string-data-topic",2,null,message);
+
+to make condsumer read from a particular partition

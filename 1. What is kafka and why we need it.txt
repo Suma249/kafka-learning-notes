@@ -1,0 +1,28 @@
+what is kafka?
+apache kafka is an opne source distributed event streaming platform
+event streaming: involves 2 tasks -> 
+    1. creating real time stream: ex: paytim a upi payment app, if we are using paytm to do payment transaction when we do transaction thay event ewill go to kafka server
+       but we are not the only one or 2 users wo are using paytm, people across the globe use this app to do transaction and hence kafka server will receive million or billions of event each minute or second or even a milli second
+       so sending the stream of continous data from paytm to the kafka server is called creating real time event stream or generating realtime stream of data, 
+    2. processing real time stream: once kafka recieves the data, it needs to process iy, so paytm dev team created one client application which will read the data from the kafka server and do some process
+       ex: lets say paytm want to restrict to 10 trandactions per day using paytm, if it exeeds the limit than client application wants to send a notification
+       to the ser in such situations, client application needs to continously fetch data and need to the validation to check the transaction count
+       for a specif user in each every milli osecomd or second
+       so this continously listens to kafka messages and processes them each called -> processing real time event stream
+continously sending message or event to the kafka sever and reading and process them -> real time event streaming
+
+distributed: in micro srrvices world, distributed means distribute multiple computers to different node or region to balance the load and to avoid down time
+similarly,kafka is also distributed platform where we can distribute our kafka server 
+
+where does kafka come from?
+kafka was originally developed at linkedin, and was sbsequently open sourced in 2011. kafka comes under apache open source foundation
+
+why do we need kafka?
+lets say, we ahve 2 applications app1 and app2, and app1 wants to send infromation to app2 but f app2 is not available to recive data it will loss the data
+so to overcome this we shpuld install something in between app1 and app2, that wiill hold the data when app2 is not avaialnle and develiers it to app2 and when app2 is available.
+this is where kafka comes into picture,a messaging system taht we can add between app1 and app2
+
+need of kafka with more complex example
+
+how does kafka work -high level overview?
+kafka works on publisher-subscriber model : publisher publishes the message to the message system and subscriber will listen to the message system or message broker for the subscribed publisher messages

@@ -1,0 +1,4 @@
+spring boot 3 integration tests using ntsiners
+
+stop local zookeeper and kafka servers, in producer application pom, add  test containers deprndency, test containes for kafka and then 
+use application.properties for this

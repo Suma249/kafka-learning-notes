@@ -1,0 +1,20 @@
+kafka consumer and producer code that we wrote befor ewill only accept string if we try to try iwth other data typ eit wont acept
+
+create a dto pacakge and a class customer, we have a customerdto class created in producer application
+add the method sendEventstotopic that accepts customerdto object in service layer of producer application and in the controller layer define the one more controller
+for cusyomerdto, it is a post request
+topic is learning-kafka-topic2,with group id consumer-group2, for string it was learning-kafka-topic1
+
+in consumer class, in consume1 method modify the type of data which is customerdto 
+
+now if we make a call to end point to, it will thrown an exception because topic will accept input as byte arrat
+from producer perspective we have to serialize and from consumer perspective input should be deserialized
+
+kafka can serialize and deserialize string but not other objects, and we have to specify that extrnally
+for this in producer application.properties add key and value serializer
+and do the same in consumer application.properties
+
+instead of defining everything in application.properties we can also customize it 
+in producer application, in config class define the method prodcerconfig annotated wth bean, and using this prodcerconfg bean we can create a producerfactory
+now create a kafka template object by giving this producerFactory bean
+
